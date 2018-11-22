@@ -29,3 +29,10 @@ void verifier(string message,string crc)
      else cout<<"message is not correct"<<endl;
 
 }
+
+int main(){
+	string crc,msg;
+	cin>>msg;cin>>crc;
+	verifier(msg,crc);
+	return 0;
+}
