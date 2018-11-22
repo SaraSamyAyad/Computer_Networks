@@ -13,7 +13,8 @@ string generator(string msg,string crc)
 	{
 		for(int j=0;j<n;j++)
 			rem[i+j]=rem[i+j]==crc[j]? '0':'1';
-		for( ;i<rem.length()&&rem[i]!='1';i++);
+		while(i<rem.length()&&rem[i]!='1')
+		    i++;
 	}
 	rem=rem.substr(rem.length()-n+1);
 	 
@@ -21,7 +22,9 @@ string generator(string msg,string crc)
 }
 int main()
 {
-	
-
+	string msg,crc;
+	cin>>msg;cin>>crc;
+	cout<<generator(msg,crc)<<endl;
+	cout<<crc<<endl;
 	return 0;
 }
