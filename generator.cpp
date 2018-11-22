@@ -1,5 +1,6 @@
 #include <iostream>
-#include<string>
+#include <string>
+#include <fstream>
 using namespace std;
 string generator(string msg,string crc)
 {
@@ -22,9 +23,15 @@ string generator(string msg,string crc)
 }
 int main()
 {
+	ofstream out;
+	out.open ("output.txt");	
 	string msg,crc;
 	cin>>msg;cin>>crc;
-	cout<<generator(msg,crc)<<endl;
+	out << msg<<"	Message"<<endl<<crc<<"	Generator function"<<endl;
+	string gen=generator(msg,crc);
+	cout<<gen<<endl;
 	cout<<crc<<endl;
+	out<< gen<<"	output"<<endl<<"---------------------------"<<endl;
+	out.close();
 	return 0;
 }
